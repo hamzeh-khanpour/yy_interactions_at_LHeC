@@ -90,7 +90,7 @@ def compare_distributions(filename):
 
 
     ax.set_xlim(-5.0, 10.0)
-    ax.set_ylim(0.00015, 0.14)
+    ax.set_ylim(0.00015, 0.12)
 
 #    plt.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
 
