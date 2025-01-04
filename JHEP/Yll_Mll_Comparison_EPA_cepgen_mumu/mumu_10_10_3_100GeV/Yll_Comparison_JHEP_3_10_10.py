@@ -85,11 +85,11 @@ def compare_distributions(filename):
     # Plotting with Matplotlib
 
 
-    fig, ax = plt.subplots(figsize = (8.0, 8.0))
+    fig, ax = plt.subplots(figsize = (8.0, 9.0))
     plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
 
-    ax.set_xlim(-10.0, 10.0)
+    ax.set_xlim(-5.0, 10.0)
     ax.set_ylim(0.00015, 0.14)
 
 #    plt.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
@@ -136,7 +136,7 @@ def compare_distributions(filename):
 
 
     info_text_3 = r"$W>100$ GeV"
-    ax.text(0.05, 0.20, info_text_3, transform=ax.transAxes, fontsize=25, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
+    ax.text(0.05, 0.78, info_text_3, transform=ax.transAxes, fontsize=25, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
 
 
     # Save the plot as a PDF and JPG file

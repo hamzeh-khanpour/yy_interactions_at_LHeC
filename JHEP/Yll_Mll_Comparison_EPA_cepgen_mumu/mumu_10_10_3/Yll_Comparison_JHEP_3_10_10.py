@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Import data from the custom module
-from dSigmadY_ep_tautau_3_10_10 import wvalues, elas, inel
+from dSigmadY_ep_mumu_3_10_10_tagged_and_750GeV import wvalues, elas, inel, elastagged, elas750GeV
 
 # Matplotlib configuration for publication-quality plots
 import mplhep as hep
@@ -82,21 +82,29 @@ def compare_distributions(filename):
     elas_MPL = elas[3][:303]
     inel_MPL = inel[3][:303]
 
+    elastagged_MPL = elastagged[3][:303]
+    elas750GeV_MPL = elas750GeV[3][:303]
+
+
+
     # Plotting with Matplotlib
 
 
-    fig, ax = plt.subplots(figsize = (8.0, 7.0))
+    fig, ax = plt.subplots(figsize = (8.0, 9.0))
     plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
 
-    ax.set_xlim(-10.0, 10.0)
-    ax.set_ylim(0.1, 40.0)
+    ax.set_xlim(-5.0, 10.0)
+    ax.set_ylim(0.1, 41.0)
 
 #    plt.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
 
     # Plot graphs from Matplotlib data
     ax.plot(Yll_MPL, elas_MPL, linestyle='solid', linewidth=3, color='blue', label='elastic (EPA)')
-    ax.plot(Yll_MPL, inel_MPL, linestyle='dashed', linewidth=3, color='red', label='inelastic (EPA)')
+    ax.plot(Yll_MPL, inel_MPL, linestyle='dashdot', linewidth=3, color='red', label='inelastic (EPA)')
+
+    ax.plot(Yll_MPL, elastagged_MPL, linestyle=(0, (5, 2, 1, 2, 1, 2)), linewidth=3, color='black', label='elastic - p detected (EPA)')
+    ax.plot(Yll_MPL, elas750GeV_MPL, linestyle='dashed', linewidth=3, color='orange', label='elastic - $\sqrt{s}=0.75$ TeV (EPA)')
 
     # Plot histograms with error bars using ax.errorbar
 #    ax.errorbar(bin_centers, hist_Yll_E, xerr=DX, yerr=hist_Yll_E_errors,  marker='.', linestyle='None', linewidth=2, color='magenta', label='elastic (cepgen)')
@@ -133,6 +141,7 @@ def compare_distributions(filename):
     ax.text(0.05, 0.95, info_text_1, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
     info_text_2 = r"$M_N<3$ GeV"
     ax.text(0.05, 0.88, info_text_2, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
+
 
     # Save the plot as a PDF and JPG file
     plt.savefig("Yll_Comparison_mumu_10_10_3_JHEP.pdf")
