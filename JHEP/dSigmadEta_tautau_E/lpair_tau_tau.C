@@ -7,7 +7,7 @@
 
 
 TFile *target;
-TTree *Tsignal_LHeC = new TTree("LHeC_E_750GeV_W100GeV","LHeC_E_750GeV_W100GeV");
+TTree *Tsignal_LHeC = new TTree("LHeC_E","LHeC_E");
 TFile *F;
 
 
@@ -20,7 +20,7 @@ TFile *F;
     TH1 *histq2           =  new TH1F("q2", "",      50, 0.0, 10.0);
     TH1 *histq2prime      =  new TH1F("q2prime", "", 50, 0.0, 100.0);
 
-    TH1 *histetall         =  new TH1F("etall", "",     10, -10.0, 10.0);
+    TH1 *histetall         =  new TH1F("etall", "",     20, -10.0, 10.0);
     TH1 *histYll           =  new TH1F("Yll", "",       20, -10.0, 10.0);
     TH1 *histThetall       =  new TH1F("Thetall", "",   30, -5.0, 5.0);
 
@@ -124,12 +124,12 @@ void lpair_tau_tau::Loop()
 
       Float_t  integrated_luminosity = 1.0; // fb^{-1}
 
-//      Float_t  integrated_cross_section_value_BH  = 4.55272144e+01;   //   pb   tau tau elastic 10 10
-      Float_t  integrated_cross_section_value_BH  = 1.09658671e-01;   //   pb   cepgen_tautau_E_10_10_W100GeV
+      Float_t  integrated_cross_section_value_LHeC_E  = 4.55272144e+01;   //   pb   tau tau elastic 10 10
+//      Float_t  integrated_cross_section_value_LHeC_E_W100GeV  = 1.09658671e-01;   //   pb   cepgen_tautau_E_10_10_W100GeV
 
 
 
-      Float_t  event_weight_BH  = integrated_cross_section_value_BH  * integrated_luminosity / nentries;
+      Float_t  event_weight_BH  = integrated_cross_section_value_LHeC_E  * integrated_luminosity / nentries;
 
 
 
@@ -272,7 +272,7 @@ void lpair_tau_tau::Loop()
    }  // end events loop
 
 
-     target = new TFile ("LHeC_tautau_E_10_10_750GeV_W100GeV.root","recreate");
+     target = new TFile ("LHeC_tautau_E_10_10_W10GeV.root","recreate");
      target->cd();
 
      Tsignal_LHeC->Write();
