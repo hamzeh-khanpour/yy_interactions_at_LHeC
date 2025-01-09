@@ -103,8 +103,8 @@ def compare_distributions(filename):
     ax.plot(Yll_MPL, elas_MPL, linestyle='solid', linewidth=3, color='blue', label='elastic (EPA)')
     ax.plot(Yll_MPL, inel_MPL, linestyle='dashdot', linewidth=3, color='red', label='inelastic (EPA)')
 
-    ax.plot(Yll_MPL, elastagged_MPL, linestyle=(0, (5, 2, 1, 2, 1, 2)), linewidth=3, color='black', label='elastic - p detected (EPA)')
-    ax.plot(Yll_MPL, elas750GeV_MPL, linestyle='dashed', linewidth=3, color='orange', label='elastic - $\sqrt{s}=0.75$ TeV (EPA)')
+#    ax.plot(Yll_MPL, elastagged_MPL, linestyle=(0, (5, 2, 1, 2, 1, 2)), linewidth=3, color='black', label='elastic - p detected (EPA)')
+#    ax.plot(Yll_MPL, elas750GeV_MPL, linestyle='dashed', linewidth=3, color='orange', label='elastic - $\sqrt{s}=0.75$ TeV (EPA)')
 
     # Plot histograms with error bars using ax.errorbar
 #    ax.errorbar(bin_centers, hist_Yll_E, xerr=DX, yerr=hist_Yll_E_errors,  marker='.', linestyle='None', linewidth=2, color='magenta', label='elastic (cepgen)')
