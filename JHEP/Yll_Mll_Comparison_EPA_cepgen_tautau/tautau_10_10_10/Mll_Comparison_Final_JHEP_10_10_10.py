@@ -36,8 +36,8 @@ from wgrid_10_10_10 import *
 ROOT.gStyle.SetOptStat(0)  # Remove the statistics box from the plots
 
 # Integrated cross-section values
-integrated_cross_section_value_E  = 45.5272144  # pb
-integrated_cross_section_value_QE = 12.741      # pb
+integrated_cross_section_value_E  = 4.55272144e+01  # pb
+integrated_cross_section_value_QE = 2.34944890e+01  # pb
 
 bin_width_correction = 1.0
 
@@ -257,7 +257,7 @@ def trap_integ(wv, fluxv):
 
 
 # Call the function with the filename of the ROOT file
-compare_Mll_distributions("LHeC_Compare.root")
+compare_Mll_distributions("LHeC_Compare_tatau_10_10_10.root")
 
 
 ##################################################################

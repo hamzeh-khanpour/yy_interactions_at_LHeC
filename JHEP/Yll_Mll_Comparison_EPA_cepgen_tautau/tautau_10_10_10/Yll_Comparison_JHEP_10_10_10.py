@@ -28,8 +28,8 @@ plt.rcParams["legend.fontsize"] = 15
 plt.rcParams['legend.title_fontsize'] = 'x-large' '''
 
 # Constants
-integrated_cross_section_value_E = 45.5272144  # pb
-integrated_cross_section_value_QE = 12.741  # pb
+integrated_cross_section_value_E  = 4.55272144e+01  # pb
+integrated_cross_section_value_QE = 2.34944890e+01  # pb
 bin_width_correction = 5.0
 
 def compare_distributions(filename):
@@ -139,12 +139,12 @@ def compare_distributions(filename):
     # Add text annotations
     info_text_1 = r"$Q^2_p<10$ GeV$^2$"
     ax.text(0.05, 0.95, info_text_1, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
-    info_text_2 = r"$M_N<3$ GeV"
+    info_text_2 = r"$M_N<10$ GeV"
     ax.text(0.05, 0.88, info_text_2, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
 
     # Save the plot as a PDF and JPG file
-    plt.savefig("Yll_Comparison_tautau_10_10_3_JHEP.pdf")
-    plt.savefig("Yll_Comparison_tautau_10_10_3_JHEP.jpg")
+    plt.savefig("Yll_Comparison_tautau_10_10_10_JHEP.pdf")
+    plt.savefig("Yll_Comparison_tautau_10_10_10_JHEP.jpg")
 
     # Show the plot
     plt.show()
@@ -161,4 +161,4 @@ def compare_distributions(filename):
     print("Area under the curve for Yll (inelastic (EPA)):", area_Yll_MPL_inelastic)
 
 # Call the function with the filename of the ROOT file
-compare_distributions("LHeC_Compare.root")
+compare_distributions("LHeC_Compare_tatau_10_10_10.root")
