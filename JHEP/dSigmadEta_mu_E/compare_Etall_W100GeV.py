@@ -91,13 +91,13 @@ def compare_Etall():
     hist1.SetLineColor(ROOT.kRed)
     hist1.SetLineWidth(3)
     # Set X and Y axis titles and their sizes
-    hist1.GetXaxis().SetTitle("#eta^{#mu^{+}}")
+    hist1.GetXaxis().SetTitle("#eta_{#mu^{+}}")
     hist1.GetXaxis().SetTitleSize(0.04)  # Increase title size
     hist1.GetXaxis().SetLabelSize(0.03)  # Increase label size
     hist1.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist1.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist1.GetYaxis().SetTitle("d#sigma/d#eta^{#mu^{+}} [pb/GeV]")
+    hist1.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb/GeV]")
     hist1.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist1.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist1.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
@@ -108,13 +108,13 @@ def compare_Etall():
     hist2.SetLineColor(ROOT.kBlue)
     hist2.SetLineWidth(3)
     # Set X and Y axis titles and their sizes
-    hist2.GetXaxis().SetTitle("#eta^{#mu^{+}}")
+    hist2.GetXaxis().SetTitle("#eta_{#mu^{+}}")
     hist2.GetXaxis().SetTitleSize(0.04)  # Increase title size
     hist2.GetXaxis().SetLabelSize(0.03)  # Increase label size
     hist2.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist2.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist2.GetYaxis().SetTitle("d#sigma/d#eta^{#mu^{+}} [pb/GeV]")
+    hist2.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb/GeV]")
     hist2.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist2.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist2.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
@@ -129,13 +129,13 @@ def compare_Etall():
     hist3.SetLineColor(ROOT.kBlue)
     hist3.SetLineWidth(3)
     # Set X and Y axis titles and their sizes
-    hist3.GetXaxis().SetTitle("#eta^{#mu^{+}}")
+    hist3.GetXaxis().SetTitle("#eta_{#mu^{+}}")
     hist3.GetXaxis().SetTitleSize(0.04)  # Increase title size
     hist3.GetXaxis().SetLabelSize(0.03)  # Increase label size
     hist3.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist3.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist3.GetYaxis().SetTitle("d#sigma/d#eta^{#mu^{+}} [pb/GeV]")
+    hist3.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb/GeV]")
     hist3.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist3.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist3.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
@@ -147,13 +147,13 @@ def compare_Etall():
     hist4.SetLineColor(ROOT.kBlue)
     hist4.SetLineWidth(3)
     # Set X and Y axis titles and their sizes
-    hist4.GetXaxis().SetTitle("#eta^{#mu^{+}}")
+    hist4.GetXaxis().SetTitle("#eta^{#mu_{+}}")
     hist4.GetXaxis().SetTitleSize(0.04)  # Increase title size
     hist4.GetXaxis().SetLabelSize(0.03)  # Increase label size
     hist4.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist4.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist4.GetYaxis().SetTitle("d#sigma/d#eta^{#mu^{+}} [pb/GeV]")
+    hist4.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb/GeV]")
     hist4.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist4.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist4.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
