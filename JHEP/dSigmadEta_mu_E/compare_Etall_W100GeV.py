@@ -18,10 +18,10 @@ def compare_Etall():
         return
 
     # Retrieve the TTrees
-    tree1 = file.Get("LHeC_E")
-    tree2 = file.Get("LHeC_E_750GeV")
-    tree3 = file.Get("LHeC_E_tagged")
-    tree4 = file.Get("LHeC_E_750GeV_tagged")
+    tree1 = file.Get("LHeC_E_W100GeV")
+    tree2 = file.Get("LHeC_E_750GeV_W100GeV")
+    tree3 = file.Get("LHeC_E_W100GeV_tagged")
+    tree4 = file.Get("LHeC_E_750GeV_W100GeV_tagged")
     if not tree1 or not tree2:
         print("Error: One or both TTrees not found in the ROOT file.")
         return
@@ -72,10 +72,10 @@ def compare_Etall():
 
 
     # Set Y-axis range for both histograms
-    hist1.GetYaxis().SetRangeUser(0.002, 0.025)
-    hist2.GetYaxis().SetRangeUser(0.002, 0.025)
-    hist3.GetYaxis().SetRangeUser(0.002, 0.025)
-    hist4.GetYaxis().SetRangeUser(0.002, 0.025)
+    hist1.GetYaxis().SetRangeUser(0.002, 0.022)
+    hist2.GetYaxis().SetRangeUser(0.002, 0.022)
+    hist3.GetYaxis().SetRangeUser(0.002, 0.022)
+    hist4.GetYaxis().SetRangeUser(0.002, 0.022)
 
 
 
@@ -103,7 +103,7 @@ def compare_Etall():
     hist1.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
     hist1.GetYaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist1.GetYaxis().SetRangeUser(0.002, 0.025)  # Set Y-axis range
+    hist1.GetYaxis().SetRangeUser(0.002, 0.022)  # Set Y-axis range
 
     hist2.SetLineColor(ROOT.kBlue)
     hist2.SetLineWidth(3)
@@ -120,13 +120,13 @@ def compare_Etall():
     hist2.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
     hist2.GetYaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist2.GetYaxis().SetRangeUser(0.002, 0.025)  # Set Y-axis range
+    hist2.GetYaxis().SetRangeUser(0.002, 0.022)  # Set Y-axis range
 
 
 
 
 
-    hist3.SetLineColor(ROOT.kBlue)
+    hist3.SetLineColor(ROOT.kMagenta)
     hist3.SetLineWidth(3)
     # Set X and Y axis titles and their sizes
     hist3.GetXaxis().SetTitle("#eta_{#mu^{+}}")
@@ -141,10 +141,10 @@ def compare_Etall():
     hist3.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
     hist3.GetYaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist3.GetYaxis().SetRangeUser(0.002, 0.025)  # Set Y-axis range
+    hist3.GetYaxis().SetRangeUser(0.002, 0.022)  # Set Y-axis range
 
 
-    hist4.SetLineColor(ROOT.kBlue)
+    hist4.SetLineColor(ROOT.kBlack)
     hist4.SetLineWidth(3)
     # Set X and Y axis titles and their sizes
     hist4.GetXaxis().SetTitle("#eta^{#mu_{+}}")
@@ -159,7 +159,7 @@ def compare_Etall():
     hist4.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
     hist4.GetYaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist4.GetYaxis().SetRangeUser(0.002, 0.025)  # Set Y-axis range
+    hist4.GetYaxis().SetRangeUser(0.002, 0.022)  # Set Y-axis range
 
 
 

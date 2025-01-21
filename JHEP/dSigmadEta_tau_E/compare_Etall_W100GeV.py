@@ -12,7 +12,7 @@ hep.style.use("CMS")
 
 def compare_Etall():
     # Open the ROOT file
-    file = ROOT.TFile.Open("LHeC_tautau_E_10_10.root")
+    file = ROOT.TFile.Open("LHeC_tautau_E_10_10_final.root")
     if not file or file.IsZombie():
         print("Error: Cannot open the ROOT file.")
         return
@@ -20,6 +20,8 @@ def compare_Etall():
     # Retrieve the TTrees
     tree1 = file.Get("LHeC_E_W100GeV")
     tree2 = file.Get("LHeC_E_750GeV_W100GeV")
+    tree3 = file.Get("LHeC_E_W100GeV_tagged")
+    tree4 = file.Get("LHeC_E_750GeV_W100GeV_tagged")
     if not tree1 or not tree2:
         print("Error: One or both TTrees not found in the ROOT file.")
         return
@@ -35,23 +37,42 @@ def compare_Etall():
     # Calculate total entries
     nentries1 = tree1.GetEntries()
     nentries2 = tree2.GetEntries()
+    nentries3 = tree3.GetEntries()
+    nentries4 = tree4.GetEntries()
+
+
+# Print total entries to the console
+    print(f"Total entries in tree1: {nentries1}")
+    print(f"Total entries in tree2: {nentries2}")
+    print(f"Total entries in tree3: {nentries3}")
+    print(f"Total entries in tree4: {nentries4}")
+
+
 
     # Calculate event weights
     event_weight1 = cross_section_LHeC_E * integrated_luminosity / nentries1
     event_weight2 = cross_section_LHeC_E_750GeV * integrated_luminosity / nentries2
+    event_weight3 = cross_section_LHeC_E * integrated_luminosity / nentries1
+    event_weight4 = cross_section_LHeC_E_750GeV * integrated_luminosity / nentries2
+
 
     # Create histograms for Etall
     hist1 = ROOT.TH1F("hist1", "", 20, -10.0, 10.0)
     hist2 = ROOT.TH1F("hist2", "", 20, -10.0, 10.0)
+    hist3 = ROOT.TH1F("hist3", "", 20, -10.0, 10.0)
+    hist4 = ROOT.TH1F("hist4", "", 20, -10.0, 10.0)
+
 
     # Fill histograms with event weights
     tree1.Draw(f"Etall>>hist1", f"{event_weight1}")
     tree2.Draw(f"Etall>>hist2", f"{event_weight2}")
+    tree3.Draw(f"Etall>>hist3", f"{event_weight3}")
+    tree4.Draw(f"Etall>>hist4", f"{event_weight4}")
 
 
     # Set Y-axis range for both histograms
-    hist1.GetYaxis().SetRangeUser(0.002, 0.02)
-    hist2.GetYaxis().SetRangeUser(0.002, 0.02)
+    hist1.GetYaxis().SetRangeUser(0.002, 0.018)
+    hist2.GetYaxis().SetRangeUser(0.002, 0.018)
 
     # Set Y-axis to display scientific notation
     ROOT.gStyle.SetOptLogy(0)  # Disable log scale for Y-axis
@@ -64,41 +85,86 @@ def compare_Etall():
     hist1.SetLineColor(ROOT.kRed)
     hist1.SetLineWidth(3)
     # Set X and Y axis titles and their sizes
-    hist1.GetXaxis().SetTitle("#eta^{#tau^{+}}")
+    hist1.GetXaxis().SetTitle("#eta_{#tau^{+}}")
     hist1.GetXaxis().SetTitleSize(0.04)  # Increase title size
     hist1.GetXaxis().SetLabelSize(0.03)  # Increase label size
     hist1.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist1.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist1.GetYaxis().SetTitle("d#sigma/d#eta^{#tau^{+}} [pb/GeV]")
+    hist1.GetYaxis().SetTitle("d#sigma/d#eta_{#tau^{+}} [pb/GeV]")
     hist1.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist1.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist1.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
     hist1.GetYaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist1.GetYaxis().SetRangeUser(0.002, 0.02)  # Set Y-axis range
+    hist1.GetYaxis().SetRangeUser(0.002, 0.018)  # Set Y-axis range
 
     hist2.SetLineColor(ROOT.kBlue)
     hist2.SetLineWidth(3)
     # Set X and Y axis titles and their sizes
-    hist2.GetXaxis().SetTitle("#eta^{#tau^{+}}")
+    hist2.GetXaxis().SetTitle("#eta_{#tau^{+}}")
     hist2.GetXaxis().SetTitleSize(0.04)  # Increase title size
     hist2.GetXaxis().SetLabelSize(0.03)  # Increase label size
     hist2.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist2.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist2.GetYaxis().SetTitle("d#sigma/d#eta^{#tau^{+}} [pb/GeV]")
+    hist2.GetYaxis().SetTitle("d#sigma/d#eta_{#tau^{+}} [pb/GeV]")
     hist2.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist2.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist2.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
     hist2.GetYaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist2.GetYaxis().SetRangeUser(0.002, 0.02)  # Set Y-axis range
+    hist2.GetYaxis().SetRangeUser(0.002, 0.018)  # Set Y-axis range
+
+
+
+
+    hist3.SetLineColor(ROOT.kMagenta)
+    hist3.SetLineWidth(3)
+    # Set X and Y axis titles and their sizes
+    hist3.GetXaxis().SetTitle("#eta_{#tau^{+}}")
+    hist3.GetXaxis().SetTitleSize(0.04)  # Increase title size
+    hist3.GetXaxis().SetLabelSize(0.03)  # Increase label size
+    hist3.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
+    hist3.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
+
+    hist3.GetYaxis().SetTitle("d#sigma/d#eta_{#tau^{+}} [pb/GeV]")
+    hist3.GetYaxis().SetTitleSize(0.04)  # Increase title size
+    hist3.GetYaxis().SetLabelSize(0.03)  # Increase label size
+    hist3.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
+    hist3.GetYaxis().SetTitleFont(42)  # Keep the title in regular font
+
+    hist3.GetYaxis().SetRangeUser(0.002, 0.018)  # Set Y-axis range
+
+
+
+
+
+    hist4.SetLineColor(ROOT.kBlack)
+    hist4.SetLineWidth(3)
+    # Set X and Y axis titles and their sizes
+    hist4.GetXaxis().SetTitle("#eta_{#tau^{+}}")
+    hist4.GetXaxis().SetTitleSize(0.04)  # Increase title size
+    hist4.GetXaxis().SetLabelSize(0.03)  # Increase label size
+    hist4.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
+    hist4.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
+
+    hist4.GetYaxis().SetTitle("d#sigma/d#eta_{#tau^{+}} [pb/GeV]")
+    hist4.GetYaxis().SetTitleSize(0.04)  # Increase title size
+    hist4.GetYaxis().SetLabelSize(0.03)  # Increase label size
+    hist4.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
+    hist4.GetYaxis().SetTitleFont(42)  # Keep the title in regular font
+
+    hist4.GetYaxis().SetRangeUser(0.002, 0.018)  # Set Y-axis range
+
+
 
 
     # Print integrals
-    print(f"Integral of Etall (LHeC_E_W100GEV): {hist1.Integral()} pb")
-    print(f"Integral of Etall (LHeC_E_750GeV_W100GeV): {hist2.Integral()} pb")
+    print(f"Integral of Etall (LHeC_E): {hist1.Integral()} pb")
+    print(f"Integral of Etall (LHeC_E_750GeV): {hist2.Integral()} pb")
+    print(f"Integral of Etall (LHeC_E_tagged): {hist3.Integral()} pb")
+    print(f"Integral of Etall (LHeC_E_750GeV_tagged): {hist4.Integral()} pb")
 
     # Create a canvas for the comparison
     c1 = ROOT.TCanvas("c1", "Etall Comparison", 800, 900)
@@ -120,31 +186,50 @@ def compare_Etall():
     # Draw histograms
     hist1.Draw("HIST")
     hist2.Draw("HIST SAME")
+    hist3.Draw("HIST SAME")
+    hist4.Draw("HIST SAME")
+
+
 
     # Add a legend with line styles and reduced spacing
-    legend = ROOT.TLegend(0.50, 0.75, 0.9, 0.85)  # Adjust the vertical bounds
+    legend = ROOT.TLegend(0.17, 0.75, 0.75, 0.90)  # Adjust the vertical bounds
     legend.SetNColumns(1)  # Keep one column of entries
     legend.SetMargin(0.2)  # Adjust margin to make entries closer
     legend.AddEntry(hist1, "elastic", "l")  # Solid line for elastic
     legend.AddEntry(hist2, "elastic (0.750 TeV)", "l")  # Dashed line for inelastic
+    legend.AddEntry(hist3, "elastic - p detected", "l")  # Solid line for elastic
+    legend.AddEntry(hist4, "elastic - p detected (0.750 TeV)", "l")  # Dashed line for inelastic
+
+
 
     legend.SetTextSize(0.040)  # Adjust text size for readability
     legend.SetTextFont(42)  # Set text font to Helvetica Medium
     legend.SetBorderSize(0)  # Remove border around the legend
     legend.SetFillStyle(0)   # Make the legend background transparent
 
+
+
     # Set line colors and styles for histograms
     hist1.SetLineColor(ROOT.kBlue)
-    hist1.SetLineWidth(3)
+    hist1.SetLineWidth(4)
     hist1.SetLineStyle(1)  # Solid line for elastic
 
     hist2.SetLineColor(ROOT.kRed)
-    hist2.SetLineWidth(3)
+    hist2.SetLineWidth(4)
     hist2.SetLineStyle(2)  # Dashed line for inelastic
+
+    hist3.SetLineColor(ROOT.kMagenta)
+    hist3.SetLineWidth(4)
+    hist3.SetLineStyle(6)  # Dashed line for inelastic
+
+    hist4.SetLineColor(ROOT.kBlack)
+    hist4.SetLineWidth(4)
+    hist4.SetLineStyle(4)  # Dashed line for inelastic
+
+
 
     # Draw the legend
     legend.Draw()
-
 
 
 
@@ -154,7 +239,7 @@ def compare_Etall():
     label1.SetNDC()  # Normalize coordinates to canvas dimensions
     label1.SetTextSize(0.035)
     label1.SetTextFont(42)  # Set the font to Helvetica Medium (42)
-    label1.DrawLatex(0.18, 0.87, "Q^{2}_{e} < 10 GeV^{2};  Q^{2}_{p} < 10 GeV^{2}")
+    label1.DrawLatex(0.18, 0.70, "Q^{2}_{e} < 10 GeV^{2};  Q^{2}_{p} < 10 GeV^{2}")
 
 
     #label2 = ROOT.TLatex()
@@ -166,13 +251,13 @@ def compare_Etall():
 
     label3 = ROOT.TLatex()
     label3.SetNDC()
-    label3.SetTextSize(0.035)
+    label3.SetTextSize(0.040)
     label3.SetTextFont(42)  # Set the font to Helvetica Medium (42)
-    label3.DrawLatex(0.18, 0.76, "W > 100 GeV")
+    label3.DrawLatex(0.18, 0.64, "W > 100 GeV")
 
 
     # Save the canvas
-    c1.SaveAs("dSigmadEta_tau_W100GeV.pdf")
+    c1.SaveAs("dSigmadEta_tau_W100GeV_tagged.pdf")
 #    c1.SaveAs("dSigmadEta_tau_W100GeV.png")
 #    c1.SaveAs("dSigmadEta_tau_W100GeV.root")
 

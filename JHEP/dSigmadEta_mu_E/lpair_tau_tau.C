@@ -266,9 +266,10 @@ void lpair_tau_tau::Loop()
 // ----------------------------------------------------
 
 
+
       y_p = QPrim.E()*1.0 / Protonin.E();
 
-      if ( y_p < 0.01 || y_p > 0.2 ) { continue; }
+      if ( y_p < 0.01 || y_p > 0.1 ) { continue; }
 
       cout  << "y_p = " << y_p << endl;
 
@@ -279,6 +280,7 @@ void lpair_tau_tau::Loop()
       if (Etal_m < -4.6 || Etal_m > 5.2) { continue; }
 
       cout  << "Etal_m = " << Etal_m << endl;
+
 
 
 // ----------------------------------------------------

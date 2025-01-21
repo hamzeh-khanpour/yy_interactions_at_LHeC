@@ -7,7 +7,7 @@
 
 
 TFile *target;
-TTree *Tsignal_LHeC = new TTree("LHeC_E","LHeC_E");
+TTree *Tsignal_LHeC = new TTree("LHeC_E_750GeV_W100GeV","LHeC_E_750GeV_W100GeV");
 TFile *F;
 
 
@@ -61,6 +61,11 @@ TFile *F;
    Float_t  integrated_cross_section_value_BH = 0.0;
 
    Float_t  event_weight_BH  = 0.0;
+
+
+
+   Float_t  y_p    = 0.0;
+   Float_t Etal_m  = 0.0;
 
 
 
@@ -256,6 +261,35 @@ void lpair_tau_tau::Loop()
 
 
 
+
+    // ----------------------------------------------------
+// important if condition herefor y_p and Etal_m
+// ----------------------------------------------------
+
+/*
+      y_p = QPrim.E()*1.0 / Protonin.E();
+
+      if ( y_p < 0.01 || y_p > 0.1 ) { continue; }
+
+      cout  << "y_p = " << y_p << endl;
+
+
+
+      Etal_m   =  MyGoodLeptonminus.Eta();
+
+      if (Etal_m < -4.0 || Etal_m > 4.0) { continue; }
+
+      cout  << "Etal_m = " << Etal_m << endl;
+*/
+
+// ----------------------------------------------------
+// ----------------------------------------------------
+
+
+
+
+
+
       histMassdilepton->Fill(Mll,event_weight_BH);
       histPtdilepton->Fill(Ptll,event_weight_BH);
       histq2->Fill(q2);
@@ -272,7 +306,7 @@ void lpair_tau_tau::Loop()
    }  // end events loop
 
 
-     target = new TFile ("LHeC_tautau_E_10_10_W10GeV.root","recreate");
+     target = new TFile ("LHeC_tautau_E_10_10_750GeV_100GeV.root","recreate");
      target->cd();
 
      Tsignal_LHeC->Write();
