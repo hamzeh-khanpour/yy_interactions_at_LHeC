@@ -206,9 +206,9 @@ def compare_Etall():
     legend.SetNColumns(1)  # Keep one column of entries
     legend.SetMargin(0.2)  # Adjust margin to make entries closer
     legend.AddEntry(hist1, "elastic", "l")  # Solid line for elastic
-    legend.AddEntry(hist2, "elastic (0.750 TeV)", "l")  # Dashed line for inelastic
+    legend.AddEntry(hist2, "elastic (#sqrt{s} = 0.75 TeV)", "l")  # Dashed line for inelastic
     legend.AddEntry(hist3, "elastic - p detected", "l")  # Solid line for elastic
-    legend.AddEntry(hist4, "elastic - p detected (0.750 TeV)", "l")  # Dashed line for inelastic
+    legend.AddEntry(hist4, "elastic - p detected (#sqrt{s} = 0.75 TeV)", "l")  # Dashed line for inelastic
 
 
 
