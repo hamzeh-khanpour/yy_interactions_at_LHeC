@@ -95,7 +95,7 @@ def compare_Etall():
     hist1.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist1.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist1.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb/GeV]")
+    hist1.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb]")
     hist1.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist1.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist1.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
@@ -113,7 +113,7 @@ def compare_Etall():
     hist2.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist2.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist2.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb/GeV]")
+    hist2.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb]")
     hist2.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist2.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist2.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
@@ -132,7 +132,7 @@ def compare_Etall():
     hist3.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist3.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist3.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb/GeV]")
+    hist3.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb]")
     hist3.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist3.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist3.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
@@ -151,7 +151,7 @@ def compare_Etall():
     hist4.GetXaxis().SetLabelFont(62)  # Set bold font for numbers on X-axis
     hist4.GetXaxis().SetTitleFont(42)  # Keep the title in regular font
 
-    hist4.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb/GeV]")
+    hist4.GetYaxis().SetTitle("d#sigma/d#eta_{#mu^{+}} [pb]")
     hist4.GetYaxis().SetTitleSize(0.04)  # Increase title size
     hist4.GetYaxis().SetLabelSize(0.03)  # Increase label size
     hist4.GetYaxis().SetLabelFont(62)  # Set bold font for numbers on Y-axis
