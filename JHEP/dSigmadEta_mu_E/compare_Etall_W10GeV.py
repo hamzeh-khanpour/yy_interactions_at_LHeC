@@ -63,10 +63,10 @@ def compare_Etall():
 
 
     # Create histograms for Etall
-    hist1 = ROOT.TH1F("hist1", "", 20, -10.0, 10.0)
-    hist2 = ROOT.TH1F("hist2", "", 20, -10.0, 10.0)
-    hist3 = ROOT.TH1F("hist3", "", 20, -10.0, 10.0)
-    hist4 = ROOT.TH1F("hist4", "", 20, -10.0, 10.0)
+    hist1 = ROOT.TH1F("hist1", "", 40, -10.0, 10.0)
+    hist2 = ROOT.TH1F("hist2", "", 40, -10.0, 10.0)
+    hist3 = ROOT.TH1F("hist3", "", 40, -10.0, 10.0)
+    hist4 = ROOT.TH1F("hist4", "", 40, -10.0, 10.0)
 
 
     # Fill histograms with event weights
@@ -75,6 +75,13 @@ def compare_Etall():
     tree3.Draw(f"Etall>>hist3", f"{event_weight3}")
     tree4.Draw(f"Etall>>hist4", f"{event_weight4}")
 
+
+
+    # Normalize histograms by bin width
+    hist1.Scale(1.0, "width")
+    hist2.Scale(1.0, "width")
+    hist3.Scale(1.0, "width")
+    hist4.Scale(1.0, "width")
 
 
     # Set Y-axis range for both histograms
