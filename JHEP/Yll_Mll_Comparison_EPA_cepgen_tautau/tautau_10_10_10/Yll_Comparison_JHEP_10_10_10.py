@@ -160,5 +160,21 @@ def compare_distributions(filename):
     print("Area under the curve for Yll (elastic (EPA)):", area_Yll_MPL_elastic)
     print("Area under the curve for Yll (inelastic (EPA)):", area_Yll_MPL_inelastic)
 
+
+
+
+
+
+        # Save Yll_MPL, elas_MPL, inel_MPL data to a text file
+    output_file = "Yll_elas_inel_data.txt"
+    with open(output_file, "w") as outfile:
+        outfile.write("Yll_MPL\tElastic(EPA)\tInelastic(EPA)\n")
+        for i in range(len(Yll_MPL)):
+            outfile.write(f"{Yll_MPL[i]:.6e}\t{elas_MPL[i]:.6e}\t{inel_MPL[i]:.6e}\n")
+
+    print(f"Data saved to {output_file}")
+
+
+
 # Call the function with the filename of the ROOT file
 compare_distributions("LHeC_Compare_tatau_10_10_10.root")

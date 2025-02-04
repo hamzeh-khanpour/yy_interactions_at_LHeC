@@ -256,6 +256,29 @@ def trap_integ(wv, fluxv):
 ##################################################################
 
 
+
+# ================================================================================
+
+# Compute and Save Cross-section Data
+wv = np.array(wvalues[3])
+ie, el = np.array(inel[3]), np.array(elas[3])
+
+wv1, int_inel = trap_integ(wv, ie)
+wv2, int_el = trap_integ(wv, el)
+
+# Save wv2, int_el, int_inel to a text file
+output_file = "cross_section_results.txt"
+with open(output_file, "w") as f:
+    f.write("# W_Value [GeV]    Elastic [pb]    Inelastic [pb]\n")
+    for i in range(len(wv2)):
+        f.write(f"{wv2[i]:.6f}\t{int_el[i]:.6e}\t{int_inel[i]:.6e}\n")
+
+print(f"Cross-section results saved to {output_file}")
+
+
+# ================================================================================
+
+
 # Call the function with the filename of the ROOT file
 compare_Mll_distributions("LHeC_Compare_tatau_10_10_10.root")
 
