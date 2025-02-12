@@ -42,7 +42,7 @@ sys.path.append('./values')
 from dSigmadY_sleptons_10_100000_10_tagged_elastic_m100GeV import *
 
 
-fig, ax = plt.subplots(figsize = (8.0, 8.0))
+fig, ax = plt.subplots(figsize = (10.0, 11.0))
 plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
 
@@ -72,10 +72,10 @@ plt.legend(title = title_label)
 
 # Add additional information
 info_text = "$ep \\rightarrow e (\gamma\gamma \\to \widetilde{\ell}^+ \widetilde{\ell}^-) p^*$"
-plt.text(0.650, 0.650, info_text, transform=ax.transAxes, ha='center', va='center', fontsize=25, color='black')
+plt.text(0.650, 0.72, info_text, transform=ax.transAxes, ha='center', va='center', color='black')
 
 info_text_2 = "$M_{\widetilde{\ell}}$ = 100 GeV"
-plt.text(0.650, 0.550, info_text_2, transform=ax.transAxes, ha='center', va='center', fontsize=25, color='black')
+plt.text(0.650, 0.630, info_text_2, transform=ax.transAxes, ha='center', va='center', color='black')
 
 
 
