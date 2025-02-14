@@ -180,7 +180,7 @@ def flux_yy_atye(w, Y, qmax2e, qmax2p, s_cms, eEbeam, pEbeam, pout=False):
     yp = w * math.exp(Y)  / (2.0*pEbeam)
     ye = w * math.exp(-Y) / (2.0*eEbeam)
 
-    if (yp <= 0.01 or yp >= 0.10 or ye <= 0.0 or ye >= 1.0):                    # Hamzeh take care of tagged elastic    if (yp <= 0.01 or yp >= 0.10):
+    if (yp <= 0.01 or yp >= 0.20 or ye <= 0.0 or ye >= 1.0):                    # Hamzeh take care of tagged elastic    if (yp <= 0.01 or yp >= 0.20):
         print('invalid yp value: ', yp)
         print('invalid ye value: ', ye)
         return 0.0
