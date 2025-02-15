@@ -35,8 +35,12 @@ from wgrid_100_100000_100000 import *
 ROOT.gStyle.SetOptStat(0)  # Remove the statistics box from the plots
 
 # Integrated cross-section values
-integrated_cross_section_value_E  = 1.132e-03  # pb
-integrated_cross_section_value_QE = 1.050e-03  # pb
+integrated_cross_section_value_E  = 1.323019e-03  # pb
+integrated_cross_section_value_QE = 2.03644428e-03  # pb
+
+# 1.323019e-03
+# 1.938229e-03
+
 
 bin_width_correction = 1.0
 
@@ -112,7 +116,7 @@ def compare_Mll_distributions(filename_root):
     latex_Mll.SetTextFont(42)
     latex_Mll.SetTextSize(0.035)
     latex_Mll.DrawLatex(0.15, 0.8,
-                        "Q^{2}_{e,max}<10^{3} GeV^{2};  Q^{2}_{p,max}<10^{3} GeV^{2}; #color[2]{(higgsino) cepgen}")
+                        "Q^{2}_{e,max}<10^{5} GeV^{2};  Q^{2}_{p,max}<10^{5} GeV^{2}; #color[2]{(higgsino) cepgen}")
 
 
     # Save the plot for Mll as a PDF file
@@ -143,12 +147,12 @@ def compare_Mll_distributions(filename_root):
     # Matplotlib plot for elastic and inelastic cross-sections
 
 
-    fig, ax = plt.subplots(figsize = (8.0, 9.0))
+    fig, ax = plt.subplots(figsize = (9.0, 10.0))
     plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
 
     ax.set_xlim(200.0, 500.0)
-    ax.set_ylim(1.0e-6, 5.0e-5)
+    ax.set_ylim(1.0e-6, 1.0e-4)
     ax.set_xscale("log")
     ax.set_yscale("log")
 
@@ -171,10 +175,10 @@ def compare_Mll_distributions(filename_root):
     # Add additional information
 #    info_text = r"LHeC ($E_{e}=50$ GeV; $E_{p}=7000$ GeV)"
 #    plt.text(0.50, 0.70, info_text, transform=ax.transAxes, ha='center', va='center', fontsize=20, color='black')
-    info_text = r"$Q^2_e<10^3$ GeV$^2$; $Q^2_p<10^3$ GeV$^2$; $M_N<10$ GeV"
-    plt.text(0.50, 0.67, info_text, transform=ax.transAxes, ha='center', va='center', fontsize=20, color='black')
+    info_text = r"$Q^2_e<10^5$ GeV$^2$; $Q^2_p<10^5$ GeV$^2$; $M_N<100$ GeV"
+    plt.text(0.50, 0.70, info_text, transform=ax.transAxes, ha='center', va='center', fontsize=22, color='black')
     info_text_2 = r"$M_{\tilde{H}}$ = 100 GeV"
-    plt.text(0.50, 0.60, info_text_2, transform=ax.transAxes, ha='center', va='center', fontsize=20, color='black')
+    plt.text(0.50, 0.63, info_text_2, transform=ax.transAxes, ha='center', va='center', fontsize=22, color='black')
 
 
 
@@ -196,7 +200,7 @@ def compare_Mll_distributions(filename_root):
 
 
     # Save the plot
-    plt.savefig("Mll_Comparison_matplotlib_Final_higgsinos_JHEP.pdf")
+    plt.savefig("Mll_Comparison_matplotlib_Final_higgsinos_JHEP_MN100GeV.pdf")
 
     # Show the plot
     plt.show()
@@ -246,7 +250,7 @@ def trap_integ(wv, fluxv):
 ##################################################################
 
 # Call the function with the filename of the ROOT file
-compare_Mll_distributions("LHeC_Compare_1000_1000_10.root")
+compare_Mll_distributions("LHeC_Compare_100000_100000_100.root")
 
 
 

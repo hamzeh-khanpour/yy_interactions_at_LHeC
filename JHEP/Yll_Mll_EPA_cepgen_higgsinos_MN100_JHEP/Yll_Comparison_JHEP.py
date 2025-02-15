@@ -38,8 +38,12 @@ plt.rcParams['legend.title_fontsize'] = 'x-large' '''
 
 
 # Integrated cross-section values
-integrated_cross_section_value_E  = 1.132e-03  # pb
-integrated_cross_section_value_QE = 1.050e-03  # pb
+# Integrated cross-section values
+integrated_cross_section_value_E  = 1.323019e-03  # pb
+integrated_cross_section_value_QE = 2.03644428e-03  # pb
+
+# 1.323019e-03
+# 1.938229e-03
 
 bin_width_correction = 10.0
 
@@ -157,9 +161,9 @@ def compare_distributions(filename):
 #    info_text_1 = r"LHeC ($E_{e}=50$ GeV; $E_{p}=7000$ GeV)"
 #    ax.text(0.05, 0.95, info_text_1, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
 
-    info_text_1 = r"$Q^2_p<10^3$ GeV$^2$"
+    info_text_1 = r"$Q^2_p<10^5$ GeV$^2$"
     ax.text(0.05, 0.95, info_text_1, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
-    info_text_2 = r"$M_N<10$ GeV"
+    info_text_2 = r"$M_N<100$ GeV"
     ax.text(0.05, 0.88, info_text_2, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
     info_text_3 = r"$M_{\tilde{H}}$ = 100 GeV"
     ax.text(0.05, 0.81, info_text_3, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
@@ -192,6 +196,6 @@ def compare_distributions(filename):
 
 
 # Call the function with the filename of the ROOT file
-compare_distributions("LHeC_Compare_1000_1000_10.root")
+compare_distributions("LHeC_Compare_100000_100000_100.root")
 
 
