@@ -102,12 +102,12 @@ def compare_distributions(filename):
 
     # Plotting with Matplotlib
 
-    fig, ax = plt.subplots(figsize = (8.0, 9.0))
+    fig, ax = plt.subplots(figsize = (9.0, 10.0))
     plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
 
     ax.set_xlim(0.0, 5.0)
-    ax.set_ylim(1.e-6, 1.e-3)
+    ax.set_ylim(1.e-6, 2.e-3)
 
 
 
@@ -116,6 +116,16 @@ def compare_distributions(filename):
     formatter = mticker.ScalarFormatter(useMathText=True)
     formatter.set_powerlimits((-2, 2))
     ax.yaxis.set_major_formatter(formatter)
+
+
+
+
+# Set labels and title
+    font2 = {'family':'serif', 'color':'black', 'size':24}
+#    ax.set_xlabel(r'$Y_{\tilde{H}}$', fontdict=font2)
+#    ax.set_ylabel(r'$d\sigma/dY_{\tilde{H}} \, [pb]$', fontdict=font2)
+    ax.set_xlabel(r'$Y_{\tilde{H}^+\tilde{H}^-}$')
+    ax.set_ylabel(r'$d\sigma/dY_{\tilde{H}^+\tilde{H}^-} \, [pb]$')
 
 
 
@@ -139,17 +149,6 @@ def compare_distributions(filename):
 
 
 
-
-# Set labels and title
-    font2 = {'family':'serif', 'color':'black', 'size':24}
-#    ax.set_xlabel(r'$Y_{\tilde{H}}$', fontdict=font2)
-#    ax.set_ylabel(r'$d\sigma/dY_{\tilde{H}} \, [pb]$', fontdict=font2)
-    ax.set_xlabel(r'$Y_{\tilde{H}^+\tilde{H}^-}$')
-    ax.set_ylabel(r'$d\sigma/dY_{\tilde{H}^+\tilde{H}^-} \, [pb]$')
-
-
-
-
 # Add legend
     inel_label = ('$M_N<$ ${{{:g}}}$ GeV').format(inel[0]) + (' ($Q^2_p<$ ${{{:g}}}$ GeV$^2$)').format(inel[2])
     title_label = ('$Q^2_e<$ ${{{:g}}}^{{{:g}}}$ GeV$^2$').format(10, np.log10(inel[1]))
@@ -157,11 +156,12 @@ def compare_distributions(filename):
     ax.legend()
 
 
+
 # Add text annotations
 #    info_text_1 = r"LHeC ($E_{e}=50$ GeV; $E_{p}=7000$ GeV)"
 #    ax.text(0.05, 0.95, info_text_1, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
 
-    info_text_1 = r"$Q^2_p<10^5$ GeV$^2$"
+    info_text_1 = r"$Q^2_{e,p}<10^5$ GeV$^2$"
     ax.text(0.05, 0.95, info_text_1, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
     info_text_2 = r"$M_N<100$ GeV"
     ax.text(0.05, 0.88, info_text_2, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
@@ -169,17 +169,23 @@ def compare_distributions(filename):
     ax.text(0.05, 0.81, info_text_3, transform=ax.transAxes, fontsize=20, verticalalignment='top', bbox=dict(facecolor='white', alpha=0.0))
 
 
-# {\rm ep}\to {\rm e}(\gamma\gamma\to\tilde{H}^+\tilde{H}^-){\rm p}^{(\ast)}
 
+# {\rm ep}\to {\rm e}(\gamma\gamma\to\tilde{H}^+\tilde{H}^-){\rm p}^{(\ast)}
 # $Q^2_e<10^2$ GeV$^2$;
 
+
+
     # Save the plot as a PDF and JPG file
-    plt.savefig("Yll_Comparison_higgsinos_JHEP.pdf")
-#    plt.savefig("Yll_Comparison_higgsinos_DIS2024_New.jpg")
+    plt.savefig("Yll_Comparison_higgsinos_JHEP_MN100GeV.pdf")
+#    plt.savefig("Yll_Comparison_higgsinos_JHEP_MN100GeV.jpg")
+
+
 
 
     # Show the plot
     plt.show()
+
+
 
     # Calculate area under the curve for each distribution
     area_Yll_E = np.sum(hist_Yll_E) / bin_width_correction
