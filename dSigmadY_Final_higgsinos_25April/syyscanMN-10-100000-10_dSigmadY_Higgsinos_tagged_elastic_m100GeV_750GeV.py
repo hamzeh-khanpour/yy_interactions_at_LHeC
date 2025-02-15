@@ -31,11 +31,11 @@ inelastic = True
 for Y in wlist:
     print('Y, nMmax, q2emax, q2pmax:', Y, mNmax, q2emax, q2pmax)
     if inelastic:
-        flux_inel_w = Syy.flux_inel_yy_atW(Y, 50.0, 7000.0, q2emax, mNmax, q2pmax)
+        flux_inel_w = Syy.flux_inel_yy_atW(Y, 20.0, 7000.0, q2emax, mNmax, q2pmax)
 
         # print(flux_inel_w)
 
-        s_cms = 4.0 * 50.0 * 7000.0
+        s_cms = 4.0 * 20.0 * 7000.0
 
         syy = 2.0 * flux_inel_w[0] / s_cms
 
@@ -44,11 +44,11 @@ for Y in wlist:
               .format(Y, syy, flux_inel_w[0], flux_inel_w[1]))
 
 
-    flux_el = Syy.flux_el_yy_atW(Y, 50.0, 7000.0, q2emax, q2pmax)
+    flux_el = Syy.flux_el_yy_atW(Y, 20.0, 7000.0, q2emax, q2pmax)
 
     # print(flux_el)
 
-    s_cms = 4.0 * 50.0 * 7000.0
+    s_cms = 4.0 * 20.0 * 7000.0
 
     syy = 2.0 * flux_el[0] / s_cms
 
@@ -58,7 +58,7 @@ for Y in wlist:
 
 
 
-with open('100_100000_100000_dSigmadY_Higgsinos_100GeV_tagged_elastic_m100GeV.dat', 'w') as f:
+with open('100_100000_100000_dSigmadY_Higgsinos_tagged_elastic_m100GeV_750GeV.dat', 'w') as f:
     print(res_param, file = f)     
     print(res_inel, file = f)
     print(res_el, file = f)

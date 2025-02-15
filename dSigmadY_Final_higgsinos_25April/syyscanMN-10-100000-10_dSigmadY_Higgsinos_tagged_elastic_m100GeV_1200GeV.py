@@ -58,7 +58,7 @@ for Y in wlist:
 
 
 
-with open('100_100000_100000_dSigmadY_Higgsinos_100GeV_tagged_elastic_m100GeV.dat', 'w') as f:
+with open('100_100000_100000_dSigmadY_Higgsinos_tagged_elastic_m100GeV_1200GeV.dat', 'w') as f:
     print(res_param, file = f)     
     print(res_inel, file = f)
     print(res_el, file = f)
