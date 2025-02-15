@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 # Import data from the custom module
-from dSigmadY_10_1000_1000_higgsinos_MN100 import wvalues, elas, inel
+from dSigmadY_100_100000_100000_higgsinos_MN100_m100GeV import wvalues, elas, inel
 
 
 # Matplotlib configuration for publication-quality plots
