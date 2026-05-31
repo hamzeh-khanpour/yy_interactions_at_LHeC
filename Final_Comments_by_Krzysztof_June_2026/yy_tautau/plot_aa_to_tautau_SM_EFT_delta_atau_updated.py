@@ -846,8 +846,8 @@ def plot_mass_distribution_with_fitted_ratio(
 
     # Compact fit-quality note in the lower panel.
     note = (
-        rf"$\sigma_{{\rm SM}}={sm.combined_sigma_pb:.3f}$ pb, "
-        rf"$\sigma_{{\rm EFT}}={eft.combined_sigma_pb:.3f}$ pb, "
+#        rf"$\sigma_{{\rm SM}}={sm.combined_sigma_pb:.3f}$ pb, "
+#        rf"$\sigma_{{\rm EFT}}={eft.combined_sigma_pb:.3f}$ pb, "
         rf"$\chi^2/\mathrm{{ndf}}={ratio_data.fit.chi2_ndf:.2f}$, "
         rf"$N_{{\rm fit}}={ratio_data.fit.n_fit}$"
     )
