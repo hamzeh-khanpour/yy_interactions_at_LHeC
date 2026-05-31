@@ -67,8 +67,8 @@ SM_FILES = [
 ]
 
 SM_SIGMA_PB = [
-    0.043139,  # run_01
-    0.043136,  # run_02
+    0.039381,  # run_01
+    0.039383,  # run_02
 ]
 
 EFT_FILES = [
@@ -77,8 +77,8 @@ EFT_FILES = [
 ]
 
 EFT_SIGMA_PB = [
-    0.043101,  # run_01
-    0.043099,  # run_02
+    0.039647,  # run_01  0.039347
+    0.039646,  # run_02  0.039346
 ]
 
 OUTDIR = Path("plots_aa_ww_SM_EFT")

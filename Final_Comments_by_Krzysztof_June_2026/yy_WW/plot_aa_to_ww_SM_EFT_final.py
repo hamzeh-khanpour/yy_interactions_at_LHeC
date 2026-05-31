@@ -78,8 +78,8 @@ SM_FILES = [
 ]
 
 SM_SIGMA_PB = [
-    0.043139,  # run_01
-    0.043136,  # run_02
+    0.039381,  # run_01
+    0.039383,  # run_02
 ]
 
 EFT_FILES = [
@@ -88,8 +88,8 @@ EFT_FILES = [
 ]
 
 EFT_SIGMA_PB = [
-    0.043401,  # run_01  0.043101
-    0.043499,  # run_02  0.043099
+    0.039647,  # run_01  0.039347
+    0.039646,  # run_02  0.039346
 ]
 
 OUTDIR = Path("plots_aa_ww_SM_EFT")
@@ -97,7 +97,8 @@ OUTDIR.mkdir(parents=True, exist_ok=True)
 
 # The large plot title is intentionally disabled for the final version.
 PLOT_TITLE = None
-PROCESS_NOTE = r"Elastic ($Q_e^2<10^5~\mathrm{GeV}^2$; $Q_p^2<10^5~\mathrm{GeV}^2$)"
+#PROCESS_NOTE = r"Elastic ($Q_e^2<10^5~\mathrm{GeV}^2$; $Q_p^2<10^5~\mathrm{GeV}^2$)"
+PROCESS_NOTE = r"Elastic ($ep \to e(\gamma \gamma \to W^+W^-)p^*$)"
 
 SM_LABEL = r"$W^+W^-$ (SM)"
 EFT_LABEL = r"$W^+W^-$ ($f_{M2}/\Lambda^4=1~\mathrm{TeV}^{-4}$)"
