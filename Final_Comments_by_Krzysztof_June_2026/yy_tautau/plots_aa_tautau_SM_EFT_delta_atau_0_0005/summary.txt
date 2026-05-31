@@ -1,0 +1,48 @@
+gamma gamma -> tau+ tau- SM/EFT summary
+======================================================================
+SM runs: 5
+EFT runs: 5
+SM accepted events: 5000000
+EFT accepted events: 5000000
+SM combined sigma [pb]: 50.695000000
+EFT combined sigma [pb]: 51.154000000
+Inclusive EFT/SM ratio: 1.009054147
+Luminosity [fb^-1]: 100.000000
+Ratio uncertainty mode: poisson_on_eft
+Rapidity range: [-10.0, 10.0]
+
+Fit results
+----------------------------------------------------------------------
+Main lower panel custom-bin fit:
+  slope [1/GeV]     = 5.8789257894e-05 +/- 5.6476108066e-05
+  intercept         = 1.0079149573e+00 +/- 1.2731388074e-03
+  chi2/ndf          = 2.176825
+  N_fit             = 13
+
+Standalone uniform-bin fit:
+  slope [1/GeV]     = 1.4066714465e-05 +/- 6.1215805934e-05
+  intercept         = 1.0087640702e+00 +/- 1.3573891220e-03
+  chi2/ndf          = 2.470903
+  N_fit             = 50
+
+Standalone custom-bin fit:
+  slope [1/GeV]     = 5.8789257894e-05 +/- 5.6476108066e-05
+  intercept         = 1.0079149573e+00 +/- 1.2731388074e-03
+  chi2/ndf          = 2.176825
+  N_fit             = 13
+
+Per-run cross sections used:
+
+SM:
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_0_SMEFTsim_top_alphaScheme_UFO_LHeC/Events/run_01/unweighted_events.lhe: sigma = 50.696000000 pb, events = 1000000
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_0_SMEFTsim_top_alphaScheme_UFO_LHeC/Events/run_02/unweighted_events.lhe: sigma = 50.694000000 pb, events = 1000000
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_0_SMEFTsim_top_alphaScheme_UFO_LHeC/Events/run_03/unweighted_events.lhe: sigma = 50.696000000 pb, events = 1000000
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_0_SMEFTsim_top_alphaScheme_UFO_LHeC/Events/run_04/unweighted_events.lhe: sigma = 50.690000000 pb, events = 1000000
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_0_SMEFTsim_top_alphaScheme_UFO_LHeC/Events/run_05/unweighted_events.lhe: sigma = 50.699000000 pb, events = 1000000
+
+EFT:
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_2_SMEFTsim_top_alphaScheme_UFO_LHeC_delta_atau_0_0005/Events/run_01/unweighted_events.lhe: sigma = 51.153000000 pb, events = 1000000
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_2_SMEFTsim_top_alphaScheme_UFO_LHeC_delta_atau_0_0005/Events/run_02/unweighted_events.lhe: sigma = 51.155000000 pb, events = 1000000
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_2_SMEFTsim_top_alphaScheme_UFO_LHeC_delta_atau_0_0005/Events/run_03/unweighted_events.lhe: sigma = 51.154000000 pb, events = 1000000
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_2_SMEFTsim_top_alphaScheme_UFO_LHeC_delta_atau_0_0005/Events/run_04/unweighted_events.lhe: sigma = 51.151000000 pb, events = 1000000
+  /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_2_SMEFTsim_top_alphaScheme_UFO_LHeC_delta_atau_0_0005/Events/run_05/unweighted_events.lhe: sigma = 51.157000000 pb, events = 1000000

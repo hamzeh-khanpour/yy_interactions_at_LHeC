@@ -42,6 +42,17 @@ Important updates in this version:
 
 Important convention:
     Ratio = EFT / SM = BSM benchmark prediction divided by SM prediction.
+
+
+
+
+
+
+
+python3 plot_aa_to_tautau_SM_EFT_delta_atau_updated.py   --sm-events-dir /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_0_SMEFTsim_top_alphaScheme_UFO_LHeC/Events   --eft-events-dir /home/hamzeh-khanpour/MG5_aMC_v3_6_6/aa_tautau_SM_NP_2_SMEFTsim_top_alphaScheme_UFO_LHeC_delta_atau_0_0005/Events   --luminosity-fb 100   --outdir plots_aa_tautau_SM_EFT_delta_atau_0_0005
+
+
+
 """
 
 from __future__ import annotations
@@ -454,6 +465,8 @@ def read_tautau_observables_from_lhe(path: Path) -> Tuple[np.ndarray, np.ndarray
     return np.asarray(masses, dtype=float), np.asarray(rapidities, dtype=float)
 
 
+
+
 # ============================================================
 # Sample loading
 # ============================================================
@@ -810,6 +823,7 @@ def plot_mass_distribution_with_fitted_ratio(
         sharex=True,
         gridspec_kw={"height_ratios": [3.35, 1.25], "hspace": 0.055},
     )
+
     plt.subplots_adjust(left=0.13, right=0.97, bottom=0.115, top=0.965)
 
     draw_step(ax, dist_bins, sm_hist, SM_LABEL, SM_COLOR, "-")
@@ -874,8 +888,8 @@ def make_ratio_fit_plot(
     """Create standalone ratio-only plot with statistical error bars and linear fit."""
     data = compute_mass_ratio_fit_data(sm, eft, bins, luminosity_fb)
 
-    fig, ax = plt.subplots(figsize=(14.0, 6.0))
-    plt.subplots_adjust(left=0.095, right=0.98, bottom=0.16, top=0.875)
+    fig, ax = plt.subplots(figsize=(8.0, 9.0))
+    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
     draw_fitted_ratio_axis(
         ax,
@@ -895,8 +909,8 @@ def make_ratio_fit_plot(
     ax.set_title(title, fontsize=27, pad=8)
 
     note = (
-        rf"$\sigma_{{\rm SM}}={sm.combined_sigma_pb:.3f}$ pb, "
-        rf"$\sigma_{{\rm EFT}}={eft.combined_sigma_pb:.3f}$ pb, "
+#        rf"$\sigma_{{\rm SM}}={sm.combined_sigma_pb:.3f}$ pb, "
+#        rf"$\sigma_{{\rm EFT}}={eft.combined_sigma_pb:.3f}$ pb, "
         rf"$\chi^2/\mathrm{{ndf}}={data.fit.chi2_ndf:.2f}$, "
         rf"$N_{{\rm fit}}={data.fit.n_fit}$"
     )
@@ -943,8 +957,10 @@ def plot_rapidity_distribution(sm: SampleData, eft: SampleData, outdir: Path) ->
     sm_hist, _ = make_histogram(sm_values[sm_mask], sm_weights[sm_mask], bins, differential=True)
     eft_hist, _ = make_histogram(eft_values[eft_mask], eft_weights[eft_mask], bins, differential=True)
 
-    fig, ax = plt.subplots(figsize=(10.5, 7.6))
-    plt.subplots_adjust(left=0.13, right=0.97, bottom=0.14, top=0.965)
+
+    fig, ax = plt.subplots(figsize=(8.0, 9.0))
+    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
+
 
     draw_step(ax, bins, sm_hist, SM_LABEL, SM_COLOR, "-")
     draw_step(ax, bins, eft_hist, EFT_LABEL, EFT_COLOR, "--")
