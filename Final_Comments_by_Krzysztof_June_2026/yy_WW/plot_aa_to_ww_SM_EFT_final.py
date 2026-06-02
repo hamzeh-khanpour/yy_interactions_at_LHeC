@@ -517,13 +517,14 @@ def setup_ratio_axes(figsize=(8.0, 9.0)):
         gridspec_kw={"height_ratios": [3.4, 1.0], "hspace": 0.06},
     )
 
-    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.965)
+    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
+
     return fig, ax, rax
 
 
-def setup_single_axis(figsize=(8.0, 7.8)):
+def setup_single_axis(figsize=(8.0, 9.0)):
     fig, ax = plt.subplots(figsize=figsize)
-    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.14, top=0.965)
+    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
     return fig, ax
 
 
@@ -627,7 +628,7 @@ def plot_mass_distribution(sm: SampleData, eft: SampleData) -> None:
     ratio = safe_ratio(eft_hist, sm_hist)
     ratio_err = ratio_uncertainty(eft_hist, eft_err, sm_hist, sm_err)
 
-    fig, ax, rax = setup_ratio_axes(figsize=(8.0, 9.0))
+    fig, ax, rax = setup_ratio_axes(figsize=(10.0, 10.2))
 
     draw_step(ax, bins, sm_hist, label=SM_LABEL, color=SM_COLOR, linestyle="-")
     draw_step(ax, bins, eft_hist, label=EFT_LABEL, color=EFT_COLOR, linestyle="--")
@@ -710,14 +711,14 @@ def plot_rapidity_distribution(sm: SampleData, eft: SampleData) -> None:
     ratio = safe_ratio(sm_hist, eft_hist)
     ratio_err = ratio_uncertainty(sm_hist, sm_err, eft_hist, eft_err)
 
-    fig, ax = setup_single_axis(figsize=(8.0, 7.8))
+    fig, ax = setup_single_axis(figsize=(8.0, 9.0))
 
     draw_step(ax, bins, sm_hist, label=SM_LABEL, color=SM_COLOR, linestyle="-")
     draw_step(ax, bins, eft_hist, label=EFT_LABEL, color=EFT_COLOR, linestyle="--")
 
     ymax = max(np.nanmax(sm_hist), np.nanmax(eft_hist))
 #    ax.set_ylim(0.0, 1.25 * ymax if ymax > 0.0 else 1.0)
-    ax.set_ylim(0.0, 3.51e-2)
+    ax.set_ylim(0.0, 3.01e-2)
     ax.set_xlim(Y_MIN, Y_MAX)
 
     ax.set_ylabel(r"$d\sigma/dY_{W^+W^-}$ [pb]", fontsize=24)

@@ -720,10 +720,10 @@ def set_safe_log_y(ax, arrays: List[np.ndarray]) -> None:
 
 def add_process_note(ax, loc: str = "upper right", fontsize: int = 18) -> None:
     if loc == "upper right":
-        xy = (0.97, 0.78)
+        xy = (0.97, 0.80)
         ha = "right"
     else:
-        xy = (0.03, 0.80)
+        xy = (0.03, 0.85)
         ha = "left"
 
     ax.text(
@@ -824,15 +824,18 @@ def plot_mass_distribution_with_fitted_ratio(
         gridspec_kw={"height_ratios": [3.35, 1.25], "hspace": 0.055},
     )
 
-    plt.subplots_adjust(left=0.13, right=0.97, bottom=0.115, top=0.965)
+
+    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
+
+
 
     draw_step(ax, dist_bins, sm_hist, SM_LABEL, SM_COLOR, "-")
     draw_step(ax, dist_bins, eft_hist, EFT_LABEL, EFT_COLOR, "--")
     set_safe_log_y(ax, [sm_hist, eft_hist])
     ax.set_ylabel(r"$d\sigma/dM_{\tau^+\tau^-}$ [pb/GeV]", fontsize=26)
-    ax.legend(loc="upper right", fontsize=18, frameon=False)
+    ax.legend(loc="upper right", fontsize=20, frameon=False)
     style_axis(ax)
-    add_process_note(ax, loc="upper right", fontsize=18)
+    add_process_note(ax, loc="upper right", fontsize=20)
 
     draw_fitted_ratio_axis(
         rax,
@@ -848,8 +851,8 @@ def plot_mass_distribution_with_fitted_ratio(
     note = (
 #        rf"$\sigma_{{\rm SM}}={sm.combined_sigma_pb:.3f}$ pb, "
 #        rf"$\sigma_{{\rm EFT}}={eft.combined_sigma_pb:.3f}$ pb, "
-        rf"$\chi^2/\mathrm{{ndf}}={ratio_data.fit.chi2_ndf:.2f}$, "
-        rf"$N_{{\rm fit}}={ratio_data.fit.n_fit}$"
+#        rf"$\chi^2/\mathrm{{ndf}}={ratio_data.fit.chi2_ndf:.2f}$, "
+#        rf"$N_{{\rm fit}}={ratio_data.fit.n_fit}$"
     )
     rax.text(
         0.03,
@@ -968,9 +971,9 @@ def plot_rapidity_distribution(sm: SampleData, eft: SampleData, outdir: Path) ->
     ax.set_ylim(0.0, max(np.nanmax(sm_hist), np.nanmax(eft_hist)) * 1.25)
     ax.set_xlabel(r"$Y_{\tau^+\tau^-}$", fontsize=26)
     ax.set_ylabel(r"$d\sigma/dY_{\tau^+\tau^-}$ [pb]", fontsize=26)
-    ax.legend(loc="upper left", fontsize=18, frameon=False)
+    ax.legend(loc="upper left", fontsize=20, frameon=False)
     style_axis(ax)
-    add_process_note(ax, loc="upper left", fontsize=18)
+    add_process_note(ax, loc="upper left", fontsize=20)
 
     for ext in ("pdf", "png"):
         out = outdir / f"tautau_rapidity_SM_vs_EFT.{ext}"
