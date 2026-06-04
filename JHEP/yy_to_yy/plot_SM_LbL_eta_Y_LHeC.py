@@ -488,10 +488,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--qe2max", type=float, default=1.0e5, help="Maximum electron photon virtuality in GeV^2.")
     parser.add_argument("--eta-min", type=float, default=-10.0)
     parser.add_argument("--eta-max", type=float, default=10.0)
-    parser.add_argument("--eta-bins", type=int, default=20)
+    parser.add_argument("--eta-bins", type=int, default=100)
     parser.add_argument("--y-min", type=float, default=-6.0)
     parser.add_argument("--y-max", type=float, default=8.0)
-    parser.add_argument("--y-bins", type=int, default=20)
+    parser.add_argument("--y-bins", type=int, default=100)
     parser.add_argument(
         "--w0-values",
         type=str,
