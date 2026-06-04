@@ -373,7 +373,8 @@ def save_hist_csv(outpath: Path, edges: np.ndarray, values: np.ndarray, column_n
 
 
 def plot_eta(result: HistResult, outdir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(10.0, 10.2))
+
+    fig, ax = plt.subplots(figsize=(8.0, 9.0))
     plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
     ax.stairs(result.eta_dsigma, result.eta_edges, linewidth=2.8, label="tagged elastic SM LbL")
@@ -415,7 +416,6 @@ def plot_eta(result: HistResult, outdir: Path) -> None:
 def plot_y(results: List[HistResult], outdir: Path) -> None:
 
     fig, ax = plt.subplots(figsize=(8.0, 9.0))
-
     plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
     linestyles = {10.0: "-", 100.0: "--"}
@@ -488,10 +488,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--qe2max", type=float, default=1.0e5, help="Maximum electron photon virtuality in GeV^2.")
     parser.add_argument("--eta-min", type=float, default=-10.0)
     parser.add_argument("--eta-max", type=float, default=10.0)
-    parser.add_argument("--eta-bins", type=int, default=100)
+    parser.add_argument("--eta-bins", type=int, default=80)
     parser.add_argument("--y-min", type=float, default=-6.0)
     parser.add_argument("--y-max", type=float, default=8.0)
-    parser.add_argument("--y-bins", type=int, default=100)
+    parser.add_argument("--y-bins", type=int, default=80)
     parser.add_argument(
         "--w0-values",
         type=str,
