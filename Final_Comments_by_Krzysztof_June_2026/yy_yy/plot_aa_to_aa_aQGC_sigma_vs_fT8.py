@@ -50,7 +50,7 @@ import matplotlib.pyplot as plt
 
 try:
     import mplhep as hep
-    hep.style.use("CMS")
+    hep.style.use("ATLAS")
 except Exception:
     print("WARNING: mplhep is not available. Using default Matplotlib style.")
 
@@ -181,8 +181,8 @@ def plot_abs(points: List[RunPoint], A_fit: float, outdir: Path) -> None:
     pos = [p for p in points if p.ft8_tev > 0]
     neg = [p for p in points if p.ft8_tev < 0]
 
-    fig, ax = plt.subplots(figsize=(8.0, 7.0))
-    plt.subplots_adjust(left=0.16, right=0.96, bottom=0.14, top=0.94)
+    fig, ax = plt.subplots(figsize=(8.0, 9.0))
+    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
     if pos:
         ax.plot(
@@ -226,7 +226,7 @@ def plot_abs(points: List[RunPoint], A_fit: float, outdir: Path) -> None:
         0.04,
         0.96,
         r"$ep\to e(\gamma\gamma\to\gamma\gamma)p^{(*)}$" "\n"
-        r"tree-level dimension-eight contribution",
+        r"pure tree-level dimension-eight EFT contribution",
         transform=ax.transAxes,
         fontsize=16,
         ha="left",
@@ -245,19 +245,21 @@ def plot_signed(points: List[RunPoint], A_fit: float, outdir: Path) -> None:
     f = np.array([p.ft8_tev for p in points], dtype=float)
     sig = np.array([p.sigma_pb for p in points], dtype=float)
 
-    fig, ax = plt.subplots(figsize=(8.0, 7.0))
-    plt.subplots_adjust(left=0.16, right=0.96, bottom=0.14, top=0.94)
+    fig, ax = plt.subplots(figsize=(9.0, 9.0))
+    plt.subplots_adjust(left=0.15, right=0.95, bottom=0.12, top=0.95)
 
-    ax.plot(f, sig, "o", markersize=8, label="MadGraph samples")
+    ax.plot(f, sig, "o", markersize=8, label="") #MadGraph samples
 
     x_min = min(f)
     x_max = max(f)
     xneg = np.linspace(x_min, -0.01, 300)
     xpos = np.linspace(0.01, x_max, 300)
-    ax.plot(xneg, A_fit * xneg**2, "--", linewidth=2.4, label="quadratic fit")
+    ax.plot(xneg, A_fit * xneg**2, "--", linewidth=2.4, label="") #quadratic fit
     ax.plot(xpos, A_fit * xpos**2, "--", linewidth=2.4)
 
     ax.set_yscale("log")
+    ax.set_ylim(1.0e-6, 1.0e-1)
+
     ax.set_xlabel(r"$f_{T8}/\Lambda^4$ [TeV$^{-4}$]")
     ax.set_ylabel(r"$\sigma_{\rm EFT}$ [pb]")
     ax.legend(loc="upper center", frameon=False)
@@ -267,7 +269,7 @@ def plot_signed(points: List[RunPoint], A_fit: float, outdir: Path) -> None:
         0.04,
         0.96,
         r"$ep\to e(\gamma\gamma\to\gamma\gamma)p^{(*)}$" "\n"
-        r"pure $f_{T8}^2$ contribution",
+        r"pure tree-level dimension-eight EFT contribution",
         transform=ax.transAxes,
         fontsize=16,
         ha="left",

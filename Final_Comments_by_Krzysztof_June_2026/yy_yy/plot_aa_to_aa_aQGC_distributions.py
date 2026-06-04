@@ -445,8 +445,8 @@ def plot_distribution(
     for dsigma, _, _, _, _ in csv_rows.values():
         positive_values.extend([x for x in dsigma if x > 0.0])
     if positive_values:
-        ymin = max(min(positive_values) * 0.3, 1.0e-14)
-        ymax = max(positive_values) * 5.0
+        ymin = 1.0e-8   #   max(min(positive_values) * 0.3, 1.0e-14)
+        ymax = 1.0e0   #   max(positive_values) * 5.0
         ax.set_ylim(ymin, ymax)
 
     ax.set_xlim(float(bins[0]), float(bins[-1]))
